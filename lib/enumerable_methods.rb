@@ -1,5 +1,6 @@
 module Enumerable
   def my_each
+    #return self unless block_given
     for element in self
       yield element
     end
@@ -50,12 +51,12 @@ module Enumerable
         counter += 1 if element == elem
       end
     else
-      my_each do |element|
-        counter += 1 if yield(element)
+      my_each do |elem|
+        counter += 1 if yield(elem)
       end
-  end
-    counter
     end
+    counter
+  end
 
   def my_map(procedure = nil)
     my_arr = []
